@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Sea Rent a Car</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Open Sans',sans-serif;color:#1a1a2e;}
+
+/* NAVBAR */
+.navbar{
+  background:#0a2540;
+  padding:12px 0;
+  box-shadow:0 2px 20px rgba(0,0,0,.4);
+}
+.navbar-brand{
+  display:flex;align-items:center;
+  text-decoration:none;
+}
+.logo-text{
+  color:white;font-family:'Montserrat',sans-serif;
+  border:2px solid rgba(255,255,255,.35);
+  border-radius:8px;
+  padding:7px 14px;
+  position:relative;
+}
+.logo-text::before{
+  content:'';
+  position:absolute;
+  top:-2px;left:10px;right:10px;
+  height:2px;
+  background:#0099ff;
+}
+.logo-text::after{
+  content:'';
+  position:absolute;
+  bottom:-2px;left:10px;right:10px;
+  height:2px;
+  background:#0099ff;
+}
+.logo-text .line1{font-size:10px;font-weight:600;letter-spacing:3px;opacity:.75;display:block;}
+.logo-text .line2{font-size:17px;font-weight:900;letter-spacing:1.5px;display:block;}
+.nav-link{color:rgba(255,255,255,.85) !important;font-size:14px;font-weight:600;margin:0 6px;transition:.2s;}
+.nav-link:hover{color:white !important;}
+.navbar-phone{color:rgba(255,255,255,.85);font-size:14px;font-weight:600;margin-right:12px;}
+.btn-book-nav{
+  background:#0099ff;color:white;font-weight:700;
+  padding:8px 20px;border-radius:6px;border:none;font-size:14px;
+  transition:.2s;
+}
+.btn-book-nav:hover{background:#007fd4;color:white;}
+
+/* HERO */
+.hero{
+  position:relative;
+  background:linear-gradient(135deg,#051b35 0%,#0a3560 40%,#0d4a7a 70%,#1a6590 100%);
+  overflow:hidden;
+  padding:70px 0 0;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1400&q=80') center/cover no-repeat;
+  opacity:.25;
+}
+.hero-content{position:relative;z-index:2;}
+.hero h1{
+  font-family:'Montserrat',sans-serif;
+  font-size:2.6rem;font-weight:900;
+  color:white;line-height:1.15;
+  margin-bottom:12px;
+}
+.hero h1 span{color:#4db8ff;}
+.hero .subtitle{
+  color:rgba(255,255,255,.85);
+  font-size:1.05rem;margin-bottom:8px;font-weight:600;
+}
+.hero .tagline{
+  color:rgba(255,255,255,.65);
+  font-size:.9rem;margin-bottom:28px;
+}
+.btn-quote{
+  background:#0099ff;color:white;
+  font-weight:700;font-size:1rem;
+  padding:14px 32px;border-radius:8px;
+  border:none;transition:.2s;display:inline-block;text-decoration:none;
+}
+.btn-quote:hover{background:#007fd4;color:white;}
+.hero-car{
+  position:relative;
+  bottom:0;
+}
+.hero-car img{
+  max-width:100%;
+  filter:drop-shadow(0 20px 40px rgba(0,0,0,.5));
+}
+
+/* FEATURE STRIP */
+.feature-strip{
+  background:#0d3060;
+  padding:22px 0;
+}
+.feature-item{
+  display:flex;align-items:center;gap:14px;
+  color:white;
+}
+.feature-icon{
+  width:48px;height:48px;min-width:48px;
+  background:rgba(0,153,255,.25);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+}
+.feature-item h5{font-size:.95rem;font-weight:700;margin-bottom:2px;}
+.feature-item p{font-size:.78rem;opacity:.75;margin:0;}
+.feature-divider{width:1px;background:rgba(255,255,255,.15);align-self:stretch;}
+
+/* VEHICLES */
+.vehicles-section{padding:70px 0;background:#f5f7fa;}
+.vehicles-section h2{
+  font-family:'Montserrat',sans-serif;
+  font-weight:900;font-size:2rem;
+  text-align:center;margin-bottom:10px;
+  color:#0a2540;
+}
+.section-line{
+  width:60px;height:3px;background:#0099ff;
+  margin:0 auto 40px;border-radius:2px;
+}
+.vehicle-card{
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,.1);
+  position:relative;background:#fff;
+  transition:.3s;
+}
+.vehicle-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.16);}
+.vehicle-card img{width:100%;height:200px;object-fit:cover;display:block;}
+.vehicle-card-label{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(10,37,64,.85));
+  color:white;padding:30px 16px 16px;
+  font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;
+}
+.btn-fleet{
+  display:block;width:fit-content;margin:36px auto 0;
+  background:#0099ff;color:white;font-weight:700;
+  padding:14px 40px;border-radius:8px;border:none;font-size:1rem;
+  text-decoration:none;transition:.2s;
+}
+.btn-fleet:hover{background:#007fd4;color:white;}
+
+/* WHY CHOOSE US */
+.why-section{padding:60px 0;background:white;}
+.why-section h2{
+  font-family:'Montserrat',sans-serif;font-weight:900;
+  font-size:2rem;text-align:center;margin-bottom:10px;color:#0a2540;
+}
+.why-card{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:20px;border-radius:12px;
+  transition:.2s;
+}
+.why-card:hover{background:#f0f7ff;}
+.why-icon{
+  width:50px;height:50px;min-width:50px;
+  background:#e8f4ff;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+}
+.why-card h5{font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;margin-bottom:4px;color:#0a2540;}
+.why-card p{font-size:.82rem;color:#666;margin:0;}
+
+/* BOOKING SECTION */
+.booking-section{
+  position:relative;padding:70px 0;
+  background:url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1400&q=80') center/cover no-repeat;
+}
+.booking-section::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to right,rgba(5,20,50,.75) 0%,rgba(5,20,50,.4) 100%);
+}
+.booking-content{position:relative;z-index:2;}
+.booking-left h2{
+  font-family:'Montserrat',sans-serif;font-weight:900;
+  font-size:2rem;color:white;margin-bottom:12px;
+}
+.booking-left p{color:rgba(255,255,255,.8);margin-bottom:8px;font-size:.95rem;}
+.booking-left .trust-item{
+  display:flex;align-items:center;gap:8px;
+  color:rgba(255,255,255,.75);font-size:.85rem;margin-bottom:6px;
+}
+.booking-left .trust-item span{color:#4db8ff;font-size:16px;}
+.booking-form{
+  background:rgba(13,48,96,.85);
+  backdrop-filter:blur(10px);
+  border-radius:16px;padding:32px;
+  border:1px solid rgba(255,255,255,.1);
+}
+.booking-form h3{
+  font-family:'Montserrat',sans-serif;font-weight:800;
+  color:white;font-size:1.2rem;margin-bottom:24px;text-align:center;
+}
+.booking-form .form-control,.booking-form .form-select{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.2);
+  color:white;border-radius:8px;padding:12px 14px;
+  font-size:.9rem;
+}
+.booking-form .form-control::placeholder{color:rgba(255,255,255,.5);}
+.booking-form .form-control:focus,.booking-form .form-select:focus{
+  background:rgba(255,255,255,.18);border-color:#0099ff;
+  box-shadow:0 0 0 3px rgba(0,153,255,.2);color:white;
+}
+.booking-form .form-select option{background:#0d3060;color:white;}
+.btn-send{
+  width:100%;background:#0099ff;color:white;font-weight:700;
+  padding:14px;border:none;border-radius:8px;font-size:1rem;
+  transition:.2s;
+}
+.btn-send:hover{background:#007fd4;}
+
+/* FOOTER */
+footer{
+  background:#061526;color:rgba(255,255,255,.7);
+  padding:24px 0;
+}
+footer .footer-brand{
+  font-family:'Montserrat',sans-serif;font-weight:800;
+  color:white;font-size:1.1rem;
+}
+footer .footer-info{font-size:.85rem;}
+footer .footer-locations{font-size:.82rem;opacity:.6;}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;bottom:24px;right:24px;
+  background:#25D366;color:white;
+  padding:14px 22px;border-radius:50px;font-weight:700;
+  text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,.4);
+  font-size:.9rem;z-index:999;transition:.2s;
+}
+.whatsapp:hover{background:#1da851;color:white;transform:scale(1.05);}
+
+@media(max-width:768px){
+  .hero h1{font-size:1.8rem;}
+  .feature-divider{display:none;}
+  .feature-item{margin-bottom:12px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <div class="logo-text">
+        <span class="line1">BLACK SEA</span>
+        <span class="line2">RENT A CAR</span>
+      </div>
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Fleet</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+      </ul>
+      <span class="navbar-phone d-none d-lg-inline">+359 888 123 456</span>
+      <a href="#contact" class="btn-book-nav">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="row align-items-end">
+      <div class="col-lg-6 pb-5">
+        <p class="subtitle">🏖️ Bulgarian Black Sea Coast</p>
+        <h1>Car Rental <span>from Kavarna</span> to Varna</h1>
+        <p class="tagline">Delivery to Any Location Along the Coast<br>Rent a Mitsubishi Outlander Diesel / 7 Seats</p>
+        <a href="#contact" class="btn-quote">Get A Free Quote</a>
+      </div>
+      <div class="col-lg-6 hero-car text-center">
+        <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=700&q=80" alt="Mitsubishi Outlander" style="max-height:320px;object-fit:contain;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE STRIP -->
+<div class="feature-strip">
+  <div class="container">
+    <div class="row g-3 align-items-center justify-content-center">
+      <div class="col-md-4">
+        <div class="feature-item">
+          <div class="feature-icon">🚚</div>
+          <div>
+            <h5>Delivery to Your Location</h5>
+            <p>We bring the car right to you</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-item">
+          <div class="feature-icon">👨‍👩‍👧‍👦</div>
+          <div>
+            <h5>7 Seater SUVs</h5>
+            <p>Comfortable &amp; Spacious</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-item">
+          <div class="feature-icon">⛽</div>
+          <div>
+            <h5>Diesel Automatic</h5>
+            <p>Economical &amp; Powerful</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VEHICLES -->
+<section class="vehicles-section">
+  <div class="container">
+    <h2>Our Vehicles</h2>
+    <div class="section-line"></div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="vehicle-card">
+          <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=600&q=80" alt="Spacious 7 Seater">
+          <div class="vehicle-card-label">Spacious 7 Seater</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="vehicle-card">
+          <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&q=80" alt="Luxury & Comfort">
+          <div class="vehicle-card-label">Luxury &amp; Comfort</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="vehicle-card">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Perfect for the Coast">
+          <div class="vehicle-card-label">Perfect for the Coast</div>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="btn-fleet">View Our Fleet</a>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-section">
+  <div class="container">
+    <h2>Why Choose Us?</h2>
+    <div class="section-line"></div>
+    <div class="row g-3">
+      <div class="col-md-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-icon">📦</div>
+          <div>
+            <h5>Fast Delivery</h5>
+            <p>Kavarna to Varna — we come to you</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-icon">💰</div>
+          <div>
+            <h5>Affordable Rates</h5>
+            <p>Competitive pricing all season</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-icon">🛡️</div>
+          <div>
+            <h5>Full Insurance</h5>
+            <p>Included in every rental</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="why-card">
+          <div class="why-icon">🕐</div>
+          <div>
+            <h5>24/7 Support</h5>
+            <p>Always here when you need us</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING SECTION -->
+<section id="contact" class="booking-section">
+  <div class="container booking-content">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 booking-left">
+        <h2>Book Your Car Rental Today!</h2>
+        <p>Easy, fast, and reliable — your summer vehicle is just one message away.</p>
+        <div class="trust-item"><span>✓</span> Free delivery anywhere on the coast</div>
+        <div class="trust-item"><span>✓</span> Flexible pick-up &amp; drop-off times</div>
+        <div class="trust-item"><span>✓</span> Full insurance included</div>
+      </div>
+      <div class="col-lg-7">
+        <div class="booking-form">
+          <h3>Book Your Car Rental Today!</h3>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <input type="text" class="form-control" placeholder="Name">
+            </div>
+            <div class="col-md-4">
+              <input type="tel" class="form-control" placeholder="Phone No.">
+            </div>
+            <div class="col-md-4">
+              <input type="text" class="form-control" placeholder="Pick-Up Location">
+            </div>
+            <div class="col-12">
+              <select class="form-select">
+                <option value="" disabled selected>Select Duration</option>
+                <option>1–3 days</option>
+                <option>4–7 days</option>
+                <option>1–2 weeks</option>
+                <option>More than 2 weeks</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <button class="btn-send">Send Inquiry</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-4">
+        <div class="footer-brand">Black Sea Rent a Car</div>
+      </div>
+      <div class="col-md-4 text-center footer-info">
+        📞 +359 888 123 456 · ✉ info@blackseacar.com
+      </div>
+      <div class="col-md-4 text-end footer-locations">
+        Kavarna • Balchik • Albena • Golden Sands • Varna
+      </div>
+    </div>
+    <div class="text-center mt-3" style="font-size:.78rem;opacity:.4;">© 2025 Black Sea Rent a Car. All rights reserved.</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/359XXXXXXXXX" class="whatsapp">💬 WhatsApp</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
